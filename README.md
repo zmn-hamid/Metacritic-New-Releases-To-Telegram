@@ -23,7 +23,7 @@ I used to check [Metacritic's new releases](https://www.metacritic.com/browse/al
 ## Installation
 
 1. python 3.8 or above, preferrably 3.11 (installed and added to path)
-2. > pip install -r requirements.txt
+2. ```pip install -r requirements.txt```
 3. make a `private_config.ini` file with this structure:
 
    ```
@@ -53,6 +53,6 @@ I used to check [Metacritic's new releases](https://www.metacritic.com/browse/al
 
 ## Usage
 
-> python app.py
+```python app.py```
 
 - Note: You have to manually stop the bot after the links are sent, using CTRL+C
