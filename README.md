@@ -1,4 +1,4 @@
-# Metacritic New Releases
+# Metacritic New Releases To Telegram
 
 ## What is this
 
