@@ -10,7 +10,6 @@ private_config.read("private_config.ini")
 
 BOT_TOKEN = private_config.get("api", "bot_token")
 CHAT_ID = private_config.get("database", "chat_id")
-PLAYLIST_ID = private_config.get("database", "playlist_id")
 CLIENT_ID = private_config.get("spotify", "client_id")
 CLIENT_SECRET = private_config.get("spotify", "client_secret")
 
