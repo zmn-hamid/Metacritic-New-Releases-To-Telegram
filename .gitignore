@@ -1,0 +1,8 @@
+/temp/
+/prev/
+__pycache__/
+/private_config.ini
+logs.log
+.cache
+history.json
+new_releases.json
