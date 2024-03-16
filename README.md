@@ -2,8 +2,7 @@
 
 ## What is this
 
-I used to check [Metacritics new releases](https://www.metacritic.com/browse/albums/release-date/available/date) every time and save the Spotify link of the new albums of that webpage.
-So I automated it
+I used to check [Metacritic's new releases](https://www.metacritic.com/browse/albums/release-date/available/date) every time and save the Spotify link of the new albums in my Telegram account, so I automated it
 
 ### Files explanation
 
