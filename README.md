@@ -6,19 +6,17 @@ I used to check [Metacritic's new releases](https://www.metacritic.com/browse/al
 
 ### Files explanation
 
-- [AlbumOBJ.py](/AlbumOBJ.py): contains class for album objects
 - [app.py](/app.py): the main app to be run
 - [config.py](/config.py): parses the configs (not to be changed)
-- [JSON_handler.py](/JSON_handler.py): handles json files
-- [Log.py](/Log.py): handles logger
-- [meta.html](/meta.html): offline example of that metacritic page, march 24
 - [new_releases.py](/new_releases.py): fetches the new releases and saves them as well
 - [public_config.ini](/public_config.ini): the configurations of the app
 - [README.md](/README.md): this file
 - [requirements.txt](/requirements.txt): the libraries that app use
-- [roadmap.md](/roadmap.md): the simple roadmap of the program
-- [Spotify_handler.py](/Spotify_handler.py): handles spotify interactions
-- [Telegram_handler.py](/Telegram_handler.py): handles telegram
+- [AlbumOBJ.py](/scripts/AlbumOBJ.py): contains class for album objects
+- [JSON_handler.py](/scripts/JSON_handler.py): handles json files
+- [Log.py](/scripts/Log.py): handles logger
+- [Spotify_handler.py](/scripts/Spotify_handler.py): handles spotify interactions
+- [Telegram_handler.py](/scripts/Telegram_handler.py): handles telegram
 
 ## Installation
 
@@ -56,3 +54,4 @@ I used to check [Metacritic's new releases](https://www.metacritic.com/browse/al
 > python app.py
 
 - Note: You have to manually stop the bot after the links are sent, using CTRL+C
+   then the program asks you to either save the new releases or not (choose yes if everything went well)
