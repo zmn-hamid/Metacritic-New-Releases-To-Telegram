@@ -1,15 +1,15 @@
-from config import BOT_TOKEN, CHAT_ID, NEW_RELEASES_FILENAME
-from telegram.ext import Application
-from telegram.ext import ContextTypes, Application
-from Log import logger
-from JSON_handler import CJSON
-from AlbumOBJ import Album
+from scripts.AlbumOBJ import Album
+from scripts.JSON_handler import CJSON
+from scripts.Log import logger
 from telegram.error import TelegramError
+from telegram.ext import Application, ContextTypes, ApplicationBuilder
+
+from config import BOT_TOKEN, CHAT_ID
 
 
 class TelgramHandler:
     def __init__(self) -> None:
-        self.application = Application.builder().token(BOT_TOKEN).build()
+        self.application = ApplicationBuilder().token(BOT_TOKEN).build()
         self.job_queue = self.application.job_queue
 
     async def _send_album(self, context: ContextTypes.DEFAULT_TYPE):
@@ -22,7 +22,7 @@ class TelgramHandler:
         except TelegramError as e:
             logger.critical(f"TelegramError:{e}")
 
-    def send_album(self, album: Album):
+    def add_album_to_queue(self, album: Album):
         self.job_queue.run_once(
             self._send_album,
             0,

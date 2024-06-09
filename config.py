@@ -2,7 +2,6 @@ import configparser, logging
 
 # default configs
 HISTORY_FILENAME = "history.json"
-NEW_RELEASES_FILENAME = "new_releases.json"
 
 # private configs
 private_config = configparser.ConfigParser()

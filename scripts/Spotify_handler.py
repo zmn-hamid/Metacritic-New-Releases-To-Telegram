@@ -3,9 +3,9 @@ from difflib import SequenceMatcher
 from typing import *
 
 import spotipy
+from scripts.AlbumOBJ import Album
 from spotipy.oauth2 import SpotifyClientCredentials
 
-from AlbumOBJ import Album
 from config import CLIENT_ID, CLIENT_SECRET, NUMBER_OF_FETCHED_ALBUMS
 
 spot: spotipy.Spotify
