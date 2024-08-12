@@ -9,7 +9,6 @@ from scripts.AlbumOBJ import Album
 from scripts.JSON_handler import CJSON
 from scripts.Log import logger
 from scripts.Spotify_handler import shandler
-from scripts.Telegram_handler import thandler
 
 from config import (
     HISTORY_FILENAME,
@@ -17,6 +16,7 @@ from config import (
     SAVE_TO_WEBPAGE_FILE,
     URL,
     WEBPAGE_FILE_NAME,
+    SEND_TO_TELEGRAM,
 )
 
 
@@ -131,32 +131,39 @@ class NewReleases:
         return self.new_releases
 
 
+if SEND_TO_TELEGRAM:
+    from scripts.Telegram_handler import thandler
 new_rls_obj = NewReleases()
 new_releases = new_rls_obj.get_new_releases()
 if new_releases:
     for new_release in new_releases:
         album: Album = new_release["album"]
-        logger.debug(f'"{album.NAME}" by "{album.ARTIST}"... ')
+        if SEND_TO_TELEGRAM:
+            logger.debug(f'"{album.NAME}" by "{album.ARTIST}"... ')
 
-        # get the url
-        spot_album = shandler.get_album_by_info(album)
-        if not spot_album.URL:
-            logger.warning(
-                f'couldnt find album in Spotify : "{album.NAME}" by "{album.ARTIST}"'
-            )
-        logger.debug("got url... ")
+            # get the url
+            spot_album = shandler.get_album_by_info(album)
+            if not spot_album.URL:
+                logger.warning(
+                    f'couldnt find album in Spotify : "{album.NAME}" by "{album.ARTIST}"'
+                )
+            logger.debug("got url... ")
 
-        # send the url
-        thandler.add_album_to_queue(album=spot_album)
-        logger.debug("added message job.")
+            # send the url
+            thandler.add_album_to_queue(album=spot_album)
+            logger.debug("added message job.")
+        else:
+            print(f"{album.ARTIST} - {album.NAME}")
 
-    logger.debug("sending messages...")
-    thandler.run()
+    if SEND_TO_TELEGRAM:
+        logger.debug("sending messages...")
+        thandler.run()
 
-try:
-    thandler.run()
-except:
-    pass
+if SEND_TO_TELEGRAM:
+    try:
+        thandler.run()
+    except:
+        pass
 
 if new_releases and click.confirm("Save the updates"):
     new_rls_obj.save_to_history()

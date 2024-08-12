@@ -25,3 +25,4 @@ READ_WEBPAGE_FROM_FILE = public_config.getboolean("settings", "read_webpage_from
 SAVE_TO_WEBPAGE_FILE = public_config.getboolean("settings", "save_to_webpage_file")
 WEBPAGE_FILE_NAME = public_config.get("settings", "webpage_file_name")
 NUMBER_OF_FETCHED_ALBUMS = public_config.getint("settings", "number_of_fetched_albums")
+SEND_TO_TELEGRAM = public_config.getboolean("settings", "send_to_telegram")
